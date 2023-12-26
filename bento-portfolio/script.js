@@ -105,39 +105,36 @@ const child5 = document.querySelector('.bento_box:nth-child(5)');
 const child6 = document.querySelector('.bento_box:nth-child(6)');
 
 const layoutArray = [
-    // { tr: 0, tl: 10, br: 0, bl: 50 },
-    // { tr: 10, tl: 0, br: 10, bl: 0 },
-    // { tr: 0, tl: 0, br: 10, bl: 0 },
-    // { tr: 0, tl: 50, br: 10, bl: 0 },
-    // { tr: 10, tl: 10, br: 50, bl: 0 },
-    // { tr: 0, tl: 0, br: 0, bl: 0 },
-    '40% 60% 70% 30% / 30% 30% 70% 70%',
-    '24% 76% 21% 79% / 60% 75% 25% 40%',
-    '7% 93% 40% 60% / 91% 16% 84% 9%',
+    { tr: 0, tl: 10, br: 0, bl: 10 },
+    { tr: 10, tl: 0, br: 10, bl: 0 },
+    { tr: 0, tl: 0, br: 10, bl: 0 },
+    { tr: 0, tl: 10, br: 10, bl: 0 },
+    { tr: 10, tl: 10, br: 10, bl: 0 },
+    { tr: 0, tl: 0, br: 0, bl: 0 },
 ];
 
 const randomlyRoundCorner = (box) => {
     const randomIndex = Math.floor(Math.random() * layoutArray.length);
     const randomLayout = layoutArray[randomIndex];
     gsap.to(box, {
-        duration: 4.5,
+        duration: 1,
         ease: 'bounce.in',
-        borderRadius: layoutArray[randomIndex],
-        // borderTopRightRadius: `${randomLayout.tr}%`,
-        // borderTopLeftRadius: `${randomLayout.tl}%`,
-        // borderBottomRightRadius: `${randomLayout.br}%`,
-        // borderBottomLeftRadius: `${randomLayout.bl}%`,
+        borderTopRightRadius: `${randomLayout.tr}%`,
+        borderTopLeftRadius: `${randomLayout.tl}%`,
+        borderBottomRightRadius: `${randomLayout.br}%`,
+        borderBottomLeftRadius: `${randomLayout.bl}%`,
         onComplete: () => {
             setTimeout(() => {
                 gsap.to(box, {
-                    duration: 1.5,
-                    ease: 'expo.out',
+                    duration: 1,
+                    gap: 4,
+                    ease: 'bounce.out',
                     borderTopRightRadius: '0%',
                     borderTopLeftRadius: '0%',
                     borderBottomRightRadius: '0%',
                     borderBottomLeftRadius: '0%',
                 });
-            }, 5000);
+            }, 2000);
         },
     });
 };
@@ -146,6 +143,6 @@ setInterval(() => {
         `.bento_box:nth-child(${Math.floor(Math.random() * 6) + 1})`,
     );
     randomlyRoundCorner(randomEl);
-}, Math.floor(Math.random() * (4001 - 500)) + 2000);
+}, 5000);
 
 init();
