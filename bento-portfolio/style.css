@@ -59,13 +59,13 @@ body{
   transition: background-color 0.32s ease-in-out;
 }
 
-.bento_box:active {
+/* .bento_box:active {
   background-color: rgba(48,48,48,0.8);
   transition: border-radius 1s ease-in-out;
-}
+} */
 .bento_box:hover {
-  background-color: rgba(48,48,48,0.8);
-  transition: border-radius 1s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.178);
+  transition: border-radius .5s ease-in-out;
 }
 
 .bento1, .bento2, .bento3, .bento4, .bento5, .bento6, .bento7, .bento8, .bento9, .bento10, .bento11, .bento12, .bento13, .bento14 {
@@ -78,7 +78,7 @@ body{
 .bento3 { grid-area: 6 / 1 / 7 / 2; background-color: var(--offgreen)}
 .bento4 { grid-area: 6 / 2 / 7 / 3; background-color: var(--offwhite)}
 .bento5 { grid-area: 1 / 2 / 2 / 4; background-color: var(--offyellow)}
-.bento6 { grid-area: 2 / 2 / 3 / 3; background-color: var(--offwhite)}
+.bento6 { grid-area: 2 / 2 / 3 / 3; background-color: var(--offyellow); display:flex; flex-direction: column; justify-content: center; align-items: center; }
 .bento7 { grid-area: 2 / 3 / 5 / 6; background-color: var(--offwhite)}
 .bento8 { grid-area: 5 / 3 / 7 / 5; background-color: var(--offyellow)}
 .bento9 { grid-area: 5 / 5 / 7 / 6; background-color: var(--offwhite)}
@@ -87,6 +87,90 @@ body{
 .bento12 { grid-area: 2 / 6 / 4 / 7; background-color: var(--offwhite)}
 .bento13 { grid-area: 2 / 7 / 4 / 8; background-color: var(--offgreen)}
 .bento14 { grid-area: 4 / 6 / 7 / 8; background-color: var(--offgreen)}
+
+.toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.toggle-slot {
+  font-size: 10px;
+  position: relative;
+  height: 3.5em;
+  width: 7em;
+  border: 0px solid transparent;
+  border-radius: 10em;
+  background-color: white;
+  transition: background-color 250ms;
+}
+
+.toggle-checkbox:checked ~ .toggle-slot {
+  background-color: #374151;
+}
+
+.toggle-button {
+  transform: translate(0.3em, 0.25em);
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background-color: #ffeccf;
+  box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
+  transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+  background-color: #485367;
+  box-shadow: inset 0px 0px 0px 0.75em white;
+  transform: translate(3.65em, 0.25em);
+}
+
+.sun-icon {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  color: #ffbb52;
+}
+
+.sun-icon-wrapper {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  opacity: 1;
+  transform: translate(2em, 2em) rotate(15deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+  opacity: 0;
+  transform: translate(3em, 2em) rotate(0deg);
+}
+
+.moon-icon {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  color: white;
+}
+
+.moon-icon-wrapper {
+  position: absolute;
+  height: 6em;
+  width: 6em;
+  opacity: 0;
+  transform: translate(11em, 2em) rotate(0deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+  opacity: 1;
+  transform: translate(2em, 2em) rotate(-15deg);
+}
 
 @media screen and (max-width: 915px) {
   .parent {
