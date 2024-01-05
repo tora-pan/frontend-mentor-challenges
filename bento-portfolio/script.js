@@ -5,9 +5,41 @@ const bentoIntro = bento.querySelectorAll(
     '.bento_intro > .bento_intro_row > h1',
 );
 
-console.log(bentoIntro);
-
 const init = () => {
+    const date = document.getElementById('date');
+    const day = document.getElementById('day');
+    const month = document.getElementById('month');
+    const year = document.getElementById('year');
+    const today = new Date();
+    const weekDays = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+    ];
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+
+    date.innerHTML = (today.getDate() < 10 ? '0' : '') + today.getDate();
+    day.innerHTML = weekDays[today.getDay()];
+    month.innerHTML = months[today.getMonth()];
+    year.innerHTML = today.getYear();
+
     gsap.set(bentoBoxes, { scaleY: 0, transformOrigin: 'bottom' });
     gsap.set(bentoBoxesSpan, { y: '110%' });
 
@@ -69,16 +101,16 @@ const animateBoxes = () => {
         );
 };
 
-const animateInnerText = (dataSpan) => {
-    gsap.timeline({ defaults: { duration: 0.62 } })
-        .to(dataSpan, {
-            y: '-100%',
-            ease: 'expo.in',
-            overwrite: true,
-        })
-        .set(dataSpan, { y: '100%' })
-        .to(dataSpan, { y: '0', ease: 'expo.out' });
-};
+// const animateInnerText = (dataSpan) => {
+//     gsap.timeline({ defaults: { duration: 0.62 } })
+//         .to(dataSpan, {
+//             y: '-100%',
+//             ease: 'expo.in',
+//             overwrite: true,
+//         })
+//         .set(dataSpan, { y: '100%' })
+//         .to(dataSpan, { y: '0', ease: 'expo.out' });
+// };
 
 const addEventListeners = () => {
     bentoBoxes.forEach((box) => {
