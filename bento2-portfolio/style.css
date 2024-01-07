@@ -1,0 +1,73 @@
+body {
+    background: red;
+}
+.container {
+    background-color: #7d7d7d;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: row;
+    grid-template-areas:
+        'a a b b c c d e e e'
+        'a a b b c c d e e e'
+        'h h h h h h f g g g'
+        'h h h h h h i i j j'
+        'h h h h h h i i j j';
+    background: #544d4d;
+    border: 1px solid #ccc;
+}
+
+.box {
+    border-radius: 40px;
+    margin: 10px;
+    background: #777575;
+    border-top: 4px solid #ececec;
+    border-bottom: 4px solid #ececec;
+}
+
+.a {
+    grid-area: a;
+}
+
+.b {
+    grid-area: b;
+}
+
+.c {
+    grid-area: c;
+    
+}
+
+.e {
+    grid-area: e;
+}
+
+.d {
+    grid-area: d;
+}
+
+.f {
+    grid-area: f;
+}
+
+.g {
+    grid-area: g;
+}
+
+.h {
+    grid-area: h;
+    
+}
+
+.i {
+    grid-area: i;
+    background: url('./egg.png');
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.j {
+    grid-area: j;
+}

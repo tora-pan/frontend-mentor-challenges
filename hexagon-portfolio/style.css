@@ -34,3 +34,43 @@
   margin-top:3px;
 }
 
+.container {  
+  position: relative;
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "one one three three three three"
+    "one one three three three three"
+    "two two three three three three"
+    "two two three three three three"
+    "two two three three three three";
+}
+
+.one { grid-area: one; 
+background: #27aae1;
+position: relative;}
+
+#shape {
+  -webkit-clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  width:200px;
+  height:200px;
+  background-color:black;
+}
+.two { 
+  -webkit-clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  border-top-right-radius: 50%;
+  background-color:black;
+  grid-area: two;
+background: #27aae1; position: absolute; top:0; left: 0; right: 0px; height: 100%; border: 2px solid red;}
+
+
+.three { grid-area: three; background: #27aae1}
+
+
+
