@@ -1,15 +1,19 @@
 .parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
-  grid-template-rows: repeat(5, 1fr); /* Adjust as needed */
-  grid-gap: 0;
-  width: 100vw; /* Adjust as needed */
-  height: 100vh; /* Adjust as needed */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjust as needed */
+    grid-template-rows: repeat(5, 1fr); /* Adjust as needed */
+    grid-gap: 0;
+    width: 100vw; /* Adjust as needed */
+    height: 100vh; /* Adjust as needed */
 }
 
 .parent > div {
-  border: 1px solid #ccc; /* Adjust border styles as needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border: 1px solid #ccc; /* Adjust border styles as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner {
+    flex: 1 1 0%;
 }
