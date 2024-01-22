@@ -1,0 +1,108 @@
+body{
+  background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 80vh;
+    margin: 0 auto;
+}
+.steps {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #ccc;
+    background-color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 3px solid #ccc;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.circle.filled {
+    color: #ffffff;
+    border-color: #122aff;
+    background-color: #4e63ff;
+}
+.circle.active {
+    animation: pulse 2s cubic-bezier(1, 0.02, 0.41, 0.93) infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        /* border-color: #5868fa; */
+    }
+    50% {
+        transform: scale(1.1);
+        border-color: #c2caff;
+        transform: translateY(2px);
+    }
+    100% {
+        transform: scale(1);
+        /* border-color: #5868fa; */
+    }
+}
+
+.progress-bar {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #e4e7ff;
+    z-index: -5;
+}
+
+.indicator {
+    position: absolute;
+    height: 4px;
+    width: 0%;
+    background-color: #122aff;
+    z-index: -1;
+    transition: width 0.2s ease-in-out;
+}
+
+button {
+    border: none;
+    background-color: blue;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    color: white;
+    margin: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: scale 0.2s ease-in-out;
+}
+button:hover {
+    background-color: #5868fa;
+    scale: 1.1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#prev {
+}
+
+#next {
+}
